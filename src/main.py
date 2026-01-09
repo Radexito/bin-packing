@@ -1,5 +1,7 @@
 """Bin Packing entry point."""
 import logging
+import random
+
 from models import Product
 from models.container import Container
 from packing import pack_products
@@ -11,16 +13,18 @@ logger = logging.getLogger(__name__)
 
 def generate_products() -> list[Product]:
     """Generate a list of sample products for packing."""
+
     templates = [
-        Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100),
-        Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100),
-        Product(sku="A3", name="large-box", width=500, depth=500, height=500, weight=10000),
+        Product(sku="A4", name="large-box", width=500, depth=500, height=500, weight=10000, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
+        Product(sku="A3", name="medium-large-box", width=350, depth=350, height=350, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
+        Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
+        Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
     ]
 
     # create distinct instances for each copy to avoid shared-object side-effects
     products: list[Product] = []
-    for tmpl in templates:
-        for _ in range(10):
+    for i,tmpl in enumerate(templates):
+        for _ in range(10*(i+1)):
             products.append(
                 Product(
                     sku=tmpl.sku,

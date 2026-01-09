@@ -11,6 +11,1128 @@
         {
           "product": {
             "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.402673Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.402812Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.402910Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403009Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403089Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403164Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403372Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403471Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403558Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403654Z"
+          },
+          "position": {
+            "pos_x": 200,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403736Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403832Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.403939Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 250
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404024Z"
+          },
+          "position": {
+            "pos_x": 700,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404110Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 500,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404206Z"
+          },
+          "position": {
+            "pos_x": 200,
+            "pos_y": 500,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404302Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404419Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 250
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404528Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404630Z"
+          },
+          "position": {
+            "pos_x": 700,
+            "pos_y": 500,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404727Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 500,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404835Z"
+          },
+          "position": {
+            "pos_x": 200,
+            "pos_y": 500,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.404940Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 1050
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405041Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405144Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 750
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405248Z"
+          },
+          "position": {
+            "pos_x": 700,
+            "pos_y": 500,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405379Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 500,
+            "pos_z": 1050
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405494Z"
+          },
+          "position": {
+            "pos_x": 200,
+            "pos_y": 500,
+            "pos_z": 1050
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405606Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 750
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405715Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405835Z"
+          },
+          "position": {
+            "pos_x": 700,
+            "pos_y": 500,
+            "pos_z": 1050
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.405961Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.406121Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 1250
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.406242Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
+            "pos_z": 1250
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
             "sku": "A1",
             "name": "small-box",
             "width": 100,
@@ -23,11 +1145,77 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064230Z"
+            "created_at": "2026-01-09T18:32:45.406399Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 0,
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 200,
+            "depth": 100,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.406567Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 700,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 100,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 100,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.406809Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
             "pos_z": 0
           },
           "rotation": {
@@ -56,12 +1244,12 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064301Z"
+            "created_at": "2026-01-09T18:32:45.407053Z"
           },
           "position": {
-            "pos_x": 100,
-            "pos_y": 0,
-            "pos_z": 0
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 200
           },
           "rotation": {
             "rot_x": 100,
@@ -79,9 +1267,9 @@
             "id": null,
             "sku": "A1",
             "name": "small-box",
-            "width": 100,
-            "depth": 300,
-            "height": 200,
+            "width": 200,
+            "depth": 100,
+            "height": 300,
             "weight": 3100,
             "allow_rotations": true,
             "orientation_constraints": null,
@@ -89,22 +1277,22 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064361Z"
+            "created_at": "2026-01-09T18:32:45.407302Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 300,
-            "pos_z": 0
+            "pos_x": 1000,
+            "pos_y": 700,
+            "pos_z": 300
           },
           "rotation": {
-            "rot_x": 100,
-            "rot_y": 300,
-            "rot_z": 200
+            "rot_x": 200,
+            "rot_y": 100,
+            "rot_z": 300
           },
           "orientation": {
-            "width": 100,
-            "depth": 300,
-            "height": 200
+            "width": 200,
+            "depth": 100,
+            "height": 300
           }
         },
         {
@@ -122,11 +1310,11 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064410Z"
+            "created_at": "2026-01-09T18:32:45.407463Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 0,
+            "pos_x": 900,
+            "pos_y": 500,
             "pos_z": 200
           },
           "rotation": {
@@ -155,11 +1343,1011 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064447Z"
+            "created_at": "2026-01-09T18:32:45.407590Z"
+          },
+          "position": {
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 400
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 200,
+            "depth": 100,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.407730Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 700,
+            "pos_z": 600
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 100,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 100,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.407861Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
+            "pos_z": 400
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.407986Z"
+          },
+          "position": {
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 600
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 200,
+            "depth": 100,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.408119Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 700,
+            "pos_z": 900
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 100,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 100,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.408583Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
+            "pos_z": 600
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.408728Z"
+          },
+          "position": {
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 800
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 200,
+            "depth": 100,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.408873Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 700,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 100,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 100,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.409006Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
+            "pos_z": 800
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.409147Z"
+          },
+          "position": {
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.409280Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.409430Z"
+          },
+          "position": {
+            "pos_x": 400,
+            "pos_y": 500,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.409585Z"
+          },
+          "position": {
+            "pos_x": 900,
+            "pos_y": 500,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pallet-2",
+      "dimensions": {
+        "width": 1200,
+        "depth": 800,
+        "height": 1500
+      },
+      "items": [
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410561Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410662Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410735Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A4",
+            "name": "large-box",
+            "width": 500,
+            "depth": 500,
+            "height": 500,
+            "weight": 10000,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410811Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 500
+          },
+          "rotation": {
+            "rot_x": 500,
+            "rot_y": 500,
+            "rot_z": 500
+          },
+          "orientation": {
+            "width": 500,
+            "depth": 500,
+            "height": 500
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410883Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.410956Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 250,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411255Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 250,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 250,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A2",
+            "name": "medium-box",
+            "width": 200,
+            "depth": 350,
+            "height": 250,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411350Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 200,
+            "rot_y": 350,
+            "rot_z": 250
+          },
+          "orientation": {
+            "width": 200,
+            "depth": 350,
+            "height": 250
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411444Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411525Z"
+          },
+          "position": {
+            "pos_x": 350,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 100,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411602Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 350,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 100,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 100,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 200,
+            "height": 100,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411689Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 0,
+            "pos_z": 1350
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 200,
+            "rot_z": 100
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 200,
+            "height": 100
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411769Z"
+          },
+          "position": {
+            "pos_x": 850,
+            "pos_y": 0,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 100,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411868Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 350,
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 100,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 100,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 200,
+            "height": 100,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.411950Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 0,
+            "pos_z": 1350
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 200,
+            "rot_z": 100
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 200,
+            "height": 100
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412040Z"
           },
           "position": {
             "pos_x": 200,
-            "pos_y": 0,
+            "pos_y": 500,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 200,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412126Z"
+          },
+          "position": {
+            "pos_x": 0,
+            "pos_y": 500,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 200,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 200,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412213Z"
+          },
+          "position": {
+            "pos_x": 1000,
+            "pos_y": 350,
             "pos_z": 0
           },
           "rotation": {
@@ -188,11 +2376,44 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064485Z"
+            "created_at": "2026-01-09T18:32:45.412319Z"
           },
           "position": {
-            "pos_x": 100,
-            "pos_y": 300,
+            "pos_x": 1000,
+            "pos_y": 0,
+            "pos_z": 250
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412432Z"
+          },
+          "position": {
+            "pos_x": 600,
+            "pos_y": 500,
             "pos_z": 0
           },
           "rotation": {
@@ -221,11 +2442,11 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064521Z"
+            "created_at": "2026-01-09T18:32:45.412522Z"
           },
           "position": {
-            "pos_x": 100,
-            "pos_y": 0,
+            "pos_x": 500,
+            "pos_y": 500,
             "pos_z": 200
           },
           "rotation": {
@@ -254,12 +2475,12 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064562Z"
+            "created_at": "2026-01-09T18:32:45.412620Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 600,
-            "pos_z": 0
+            "pos_x": 350,
+            "pos_y": 300,
+            "pos_z": 1000
           },
           "rotation": {
             "rot_x": 100,
@@ -287,12 +2508,177 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064598Z"
+            "created_at": "2026-01-09T18:32:45.412717Z"
+          },
+          "position": {
+            "pos_x": 350,
+            "pos_y": 0,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 100,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412841Z"
           },
           "position": {
             "pos_x": 0,
+            "pos_y": 350,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 100,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 100,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 200,
+            "height": 300,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.412946Z"
+          },
+          "position": {
+            "pos_x": 850,
             "pos_y": 300,
-            "pos_z": 200
+            "pos_z": 1000
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 200,
+            "rot_z": 300
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 200,
+            "height": 300
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.413069Z"
+          },
+          "position": {
+            "pos_x": 850,
+            "pos_y": 0,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 100,
+            "rot_y": 300,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 100,
+            "depth": 300,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 300,
+            "depth": 100,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.413186Z"
+          },
+          "position": {
+            "pos_x": 500,
+            "pos_y": 350,
+            "pos_z": 1200
+          },
+          "rotation": {
+            "rot_x": 300,
+            "rot_y": 100,
+            "rot_z": 200
+          },
+          "orientation": {
+            "width": 300,
+            "depth": 100,
+            "height": 200
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A1",
+            "name": "small-box",
+            "width": 100,
+            "depth": 300,
+            "height": 200,
+            "weight": 3100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.413306Z"
+          },
+          "position": {
+            "pos_x": 300,
+            "pos_y": 500,
+            "pos_z": 0
           },
           "rotation": {
             "rot_x": 100,
@@ -320,12 +2706,12 @@
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064632Z"
+            "created_at": "2026-01-09T18:32:45.413444Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 0,
-            "pos_z": 400
+            "pos_x": 200,
+            "pos_y": 500,
+            "pos_z": 200
           },
           "rotation": {
             "rot_x": 100,
@@ -336,544 +2722,6 @@
             "width": 100,
             "depth": 300,
             "height": 200
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064670Z"
-          },
-          "position": {
-            "pos_x": 300,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064717Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064761Z"
-          },
-          "position": {
-            "pos_x": 300,
-            "pos_y": 350,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064805Z"
-          },
-          "position": {
-            "pos_x": 300,
-            "pos_y": 0,
-            "pos_z": 250
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064848Z"
-          },
-          "position": {
-            "pos_x": 700,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064906Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 350,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.064956Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 250
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065003Z"
-          },
-          "position": {
-            "pos_x": 300,
-            "pos_y": 350,
-            "pos_z": 250
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065049Z"
-          },
-          "position": {
-            "pos_x": 300,
-            "pos_y": 0,
-            "pos_z": 500
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A2",
-            "name": "medium-box",
-            "width": 200,
-            "depth": 350,
-            "height": 250,
-            "weight": 5100,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065099Z"
-          },
-          "position": {
-            "pos_x": 900,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 200,
-            "rot_y": 350,
-            "rot_z": 250
-          },
-          "orientation": {
-            "width": 200,
-            "depth": 350,
-            "height": 250
-          }
-        }
-      ]
-    },
-    {
-      "name": "Pallet-2",
-      "dimensions": {
-        "width": 1200,
-        "depth": 800,
-        "height": 1500
-      },
-      "items": [
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065395Z"
-          },
-          "position": {
-            "pos_x": 0,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065435Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 0
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065472Z"
-          },
-          "position": {
-            "pos_x": 0,
-            "pos_y": 0,
-            "pos_z": 500
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065504Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 500
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065540Z"
-          },
-          "position": {
-            "pos_x": 0,
-            "pos_y": 0,
-            "pos_z": 1000
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
-          }
-        },
-        {
-          "product": {
-            "id": null,
-            "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
-            "allow_rotations": true,
-            "orientation_constraints": null,
-            "fragile": false,
-            "flammable": false,
-            "geometry_type": 1,
-            "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065573Z"
-          },
-          "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 1000
-          },
-          "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
-          },
-          "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
           }
         }
       ]
@@ -890,132 +2738,594 @@
           "product": {
             "id": null,
             "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
             "allow_rotations": true,
             "orientation_constraints": null,
             "fragile": false,
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065627Z"
+            "created_at": "2026-01-09T18:32:45.414303Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 0,
+            "pos_x": 75.0,
+            "pos_y": 50.0,
             "pos_z": 0
           },
           "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
           },
           "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
+            "width": 350,
+            "depth": 350,
+            "height": 350
           }
         },
         {
           "product": {
             "id": null,
             "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
             "allow_rotations": true,
             "orientation_constraints": null,
             "fragile": false,
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065667Z"
+            "created_at": "2026-01-09T18:32:45.414406Z"
           },
           "position": {
-            "pos_x": 500,
-            "pos_y": 0,
+            "pos_x": 425.0,
+            "pos_y": 50.0,
             "pos_z": 0
           },
           "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
           },
           "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
+            "width": 350,
+            "depth": 350,
+            "height": 350
           }
         },
         {
           "product": {
             "id": null,
             "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
             "allow_rotations": true,
             "orientation_constraints": null,
             "fragile": false,
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065698Z"
+            "created_at": "2026-01-09T18:32:45.414489Z"
           },
           "position": {
-            "pos_x": 0,
-            "pos_y": 0,
-            "pos_z": 500
+            "pos_x": 75.0,
+            "pos_y": 400.0,
+            "pos_z": 0
           },
           "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
           },
           "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
+            "width": 350,
+            "depth": 350,
+            "height": 350
           }
         },
         {
           "product": {
             "id": null,
             "sku": "A3",
-            "name": "large-box",
-            "width": 500,
-            "depth": 500,
-            "height": 500,
-            "weight": 10000,
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
             "allow_rotations": true,
             "orientation_constraints": null,
             "fragile": false,
             "flammable": false,
             "geometry_type": 1,
             "geometry_data": null,
-            "created_at": "2026-01-09T18:01:10.065736Z"
+            "created_at": "2026-01-09T18:32:45.414564Z"
           },
           "position": {
-            "pos_x": 500,
-            "pos_y": 0,
-            "pos_z": 500
+            "pos_x": 75.0,
+            "pos_y": 50.0,
+            "pos_z": 350
           },
           "rotation": {
-            "rot_x": 500,
-            "rot_y": 500,
-            "rot_z": 500
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
           },
           "orientation": {
-            "width": 500,
-            "depth": 500,
-            "height": 500
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.414627Z"
+          },
+          "position": {
+            "pos_x": 775.0,
+            "pos_y": 50.0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.414698Z"
+          },
+          "position": {
+            "pos_x": 425.0,
+            "pos_y": 400.0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.414770Z"
+          },
+          "position": {
+            "pos_x": 425.0,
+            "pos_y": 50.0,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.414841Z"
+          },
+          "position": {
+            "pos_x": 75.0,
+            "pos_y": 400.0,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.414913Z"
+          },
+          "position": {
+            "pos_x": 75.0,
+            "pos_y": 50.0,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415004Z"
+          },
+          "position": {
+            "pos_x": 775.0,
+            "pos_y": 400.0,
+            "pos_z": 0
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415089Z"
+          },
+          "position": {
+            "pos_x": 775.0,
+            "pos_y": 50.0,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415170Z"
+          },
+          "position": {
+            "pos_x": 425.0,
+            "pos_y": 400.0,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415264Z"
+          },
+          "position": {
+            "pos_x": 425.0,
+            "pos_y": 50.0,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415354Z"
+          },
+          "position": {
+            "pos_x": 75.0,
+            "pos_y": 400.0,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415453Z"
+          },
+          "position": {
+            "pos_x": 75.0,
+            "pos_y": 50.0,
+            "pos_z": 1050
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415545Z"
+          },
+          "position": {
+            "pos_x": 775.0,
+            "pos_y": 400.0,
+            "pos_z": 350
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415637Z"
+          },
+          "position": {
+            "pos_x": 775.0,
+            "pos_y": 50.0,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
+          }
+        },
+        {
+          "product": {
+            "id": null,
+            "sku": "A3",
+            "name": "medium-large-box",
+            "width": 350,
+            "depth": 350,
+            "height": 350,
+            "weight": 5100,
+            "allow_rotations": true,
+            "orientation_constraints": null,
+            "fragile": false,
+            "flammable": false,
+            "geometry_type": 1,
+            "geometry_data": null,
+            "created_at": "2026-01-09T18:32:45.415723Z"
+          },
+          "position": {
+            "pos_x": 425.0,
+            "pos_y": 400.0,
+            "pos_z": 700
+          },
+          "rotation": {
+            "rot_x": 350,
+            "rot_y": 350,
+            "rot_z": 350
+          },
+          "orientation": {
+            "width": 350,
+            "depth": 350,
+            "height": 350
           }
         }
       ]

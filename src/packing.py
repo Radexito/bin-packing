@@ -38,6 +38,10 @@ def pack_products(products: List[Product], first_pallet: Container) -> List[Cont
 
         products_to_place = remaining
 
+    # Post-process: center placed items on each pallet (horizontally)
+    for p in pallets:
+        center_items_in_container(p)
+
     return pallets
 
 def _boxes_intersect(a_pos, a_size, b_pos, b_size) -> bool:
@@ -52,6 +56,65 @@ def _boxes_intersect(a_pos, a_size, b_pos, b_size) -> bool:
 
     # overlap in all three axes means intersection
     return not (ax2 <= bx1 or ax1 >= bx2 or ay2 <= by1 or ay1 >= by2 or az2 <= bz1 or az1 >= bz2)
+
+def center_items_in_container(container: Container) -> None:
+    """Translate all placed items so their X/Y bounding box is centered on the pallet.
+    Z positions are left unchanged. Translation is clamped so items remain inside bounds."""
+    if not container.items:
+        return
+
+    # compute bounding box of placed items (use placed rot_* sizes if present)
+    min_x = float("inf")
+    min_y = float("inf")
+    max_x = float("-inf")
+    max_y = float("-inf")
+
+    for item in container.items:
+        x = getattr(item, "pos_x", 0)
+        y = getattr(item, "pos_y", 0)
+        w = getattr(item, "rot_x", None)
+        d = getattr(item, "rot_y", None)
+        if w is None or d is None:
+            # fall back to product dimensions
+            w = getattr(item.product, "width", 0)
+            d = getattr(item.product, "depth", 0)
+
+        min_x = min(min_x, x)
+        min_y = min(min_y, y)
+        max_x = max(max_x, x + w)
+        max_y = max(max_y, y + d)
+
+    if min_x == float("inf") or min_y == float("inf"):
+        return
+
+    current_cx = (min_x + max_x) / 2.0
+    current_cy = (min_y + max_y) / 2.0
+    target_cx = container.width / 2.0
+    target_cy = container.depth / 2.0
+
+    dx = target_cx - current_cx
+    dy = target_cy - current_cy
+
+    # clamp dx so items remain within [0, container.width]
+    if dx < 0:
+        dx = max(dx, -min_x)
+    else:
+        dx = min(dx, container.width - max_x)
+
+    # clamp dy so items remain within [0, container.depth]
+    if dy < 0:
+        dy = max(dy, -min_y)
+    else:
+        dy = min(dy, container.depth - max_y)
+
+    # apply translation
+    if dx == 0 and dy == 0:
+        return
+
+    for item in container.items:
+        item.pos_x = getattr(item, "pos_x", 0) + dx
+        item.pos_y = getattr(item, "pos_y", 0) + dy
+        # pos_z unchanged
 
 def place_product(container: Container, product: Product) -> bool:
     """Try to place a product into a container using guillotine packing."""
