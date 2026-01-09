@@ -1,9 +1,13 @@
-"""Product model."""
 from datetime import datetime, timezone
-from typing import Optional
-
+from typing import Optional, List, Tuple
 from pydantic import BaseModel, Field
+from enum import Enum, auto
 
+class GeometryType(Enum):
+    RECTANGLE = auto()
+    TRIANGLE = auto()
+    POLYGON = auto()
+    CUSTOM = auto()
 
 class Product(BaseModel):
     """Dataclass for product model."""
@@ -29,7 +33,9 @@ class Product(BaseModel):
     """Is product fragile."""
     flammable: bool = False
     """Is product flammable."""
-    awkward: bool = False
-    """Is product awkward sized (irregular, non rectangular)."""
+    geometry_type: GeometryType = GeometryType.RECTANGLE
+    """Geometry type of the product."""
+    geometry_data: Optional[List[Tuple[int, int]]] = None
+    """Geometry data of the product (bounding box as vectors (min, max points)."""
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     """Date and time when the container model was created."""

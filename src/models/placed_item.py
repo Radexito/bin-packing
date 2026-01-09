@@ -1,21 +1,19 @@
-"""PlacedItem model."""
 from pydantic import BaseModel
 from models.product import Product
 
-
 class PlacedItem(BaseModel):
-    """A product placed inside a container at a specific position."""
+    """A product placed inside a container at a specific position and rotation."""
     product: Product
 
-    # position inside container (mm)
-    x: int
-    y: int
-    z: int
+    # Position inside container (mm)
+    pos_x: int
+    pos_y: int
+    pos_z: int
 
-    # orientation actually used (mm)
-    width: int
-    depth: int
-    height: int
+    # Rotation in degrees
+    rot_x: int = 0
+    rot_y: int = 0
+    rot_z: int = 0
 
     @property
     def weight(self) -> int:
@@ -28,3 +26,22 @@ class PlacedItem(BaseModel):
     @property
     def name(self) -> str | None:
         return self.product.name
+
+    @property
+    def rotated_width(self) -> int:
+        """Return the width after applying rotations."""
+        if self.rot_x == 90 or self.rot_x == 270:
+            return self.product.depth
+        return self.product.width
+
+    @property
+    def rotated_depth(self) -> int:
+        """Return the depth after applying rotations."""
+        if self.rot_x == 90 or self.rot_x == 270:
+            return self.product.width
+        return self.product.depth
+
+    @property
+    def rotated_height(self) -> int:
+        """Return the height of the placed item."""
+        return self.product.height

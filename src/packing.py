@@ -8,7 +8,6 @@ from models.placed_item import PlacedItem
 
 logger = logging.getLogger(__name__)
 
-
 def pack_products(products: List[Product], first_pallet: Container) -> List[Container]:
     """Pack a list of products into containers."""
     pallets = [first_pallet]
@@ -41,11 +40,9 @@ def pack_products(products: List[Product], first_pallet: Container) -> List[Cont
 
     return pallets
 
-
 def place_product(container: Container, product: Product) -> bool:
     """Try to place a product into a container using guillotine packing."""
     for i, (x, y, z, w, d, h) in enumerate(container.spaces):
-
         rotations = [(product.width, product.depth, product.height)]
         if product.allow_rotations:
             rotations += [
@@ -66,12 +63,12 @@ def place_product(container: Container, product: Product) -> bool:
 
             placed = PlacedItem(
                 product=product,
-                x=x,
-                y=y,
-                z=z,
-                width=rw,
-                depth=rd,
-                height=rh,
+                pos_x=x,
+                pos_y=y,
+                pos_z=z,
+                rot_x=0,  # Rotation not applied yet (you can modify as needed)
+                rot_y=0,
+                rot_z=0,
             )
             container.items.append(placed)
 
