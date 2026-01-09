@@ -11,14 +11,28 @@ logger = logging.getLogger(__name__)
 
 def generate_products() -> list[Product]:
     """Generate a list of sample products for packing."""
-    products = [
+    templates = [
         Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100),
         Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100),
         Product(sku="A3", name="large-box", width=500, depth=500, height=500, weight=10000),
     ]
 
-    # Generate 10 of each product type
-    return products * 10
+    # create distinct instances for each copy to avoid shared-object side-effects
+    products: list[Product] = []
+    for tmpl in templates:
+        for _ in range(10):
+            products.append(
+                Product(
+                    sku=tmpl.sku,
+                    name=getattr(tmpl, "name", None),
+                    width=tmpl.width,
+                    depth=tmpl.depth,
+                    height=tmpl.height,
+                    weight=getattr(tmpl, "weight", 0),
+                )
+            )
+
+    return products
 
 def create_initial_pallet() -> Container:
     """Create the first pallet."""
@@ -40,8 +54,9 @@ def main():
         logger.info("\n%s contains:", pallet.name)
         for item in pallet.items:
             logger.info(
-                "%s at (%d,%d,%d) size (%d,%d,%d)",
+                "%s at (%d,%d,%d) size (%d,%d,%d) rot (%d,%d,%d)",
                 item.product.sku, item.pos_x, item.pos_y, item.pos_z,
+                item.rot_x, item.rot_y, item.rot_z,
                 item.rotated_width, item.rotated_depth, item.rotated_height
             )
 
