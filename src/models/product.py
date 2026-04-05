@@ -35,6 +35,9 @@ class Product(BaseModel):
     """Orientation constraints of the product."""
     fragile: bool = False
     """Is product fragile (handling attribute — keep upright, no heavy load on top)."""
+    stackable: bool = True
+    """Whether other items may be placed on top of this product.
+    When False, the item's full XY footprint is blocked above it."""
     hazard_classes: List[HazardClass] = Field(default_factory=list)
     """UN Dangerous Goods hazard classes assigned to this product.
     A product may carry multiple classes (e.g. toxic + corrosive).
