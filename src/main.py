@@ -23,26 +23,22 @@ def generate_products() -> list[Product]:
     """Generate a list of sample products for packing."""
 
     templates = [
-        Product(sku="A4", name="large-box", width=500, depth=500, height=500, weight=10000, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes(), stackable=random.choice([True, True, True, True, True, True, True, True, True, False])),
-        Product(sku="A3", name="medium-large-box", width=350, depth=350, height=350, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes(), stackable=random.choice([True, True, True, True, True, True, True, True, True, False])),
-        Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes(), stackable=random.choice([True, True, True, True, True, True, True, True, True, False])),
-        Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes(), stackable=random.choice([True, True, True, True, True, True, True, True, True, False])),
+        Product(sku="A4", name="large-box",        width=500, depth=500, height=500, weight=10000),
+        Product(sku="A3", name="medium-large-box",  width=350, depth=350, height=350, weight=5100),
+        Product(sku="A2", name="medium-box",         width=200, depth=350, height=250, weight=5100),
+        Product(sku="A1", name="small-box",          width=100, depth=300, height=200, weight=3100),
     ]
 
-    # create distinct instances for each copy to avoid shared-object side-effects
+    # create distinct instances — randomise hazard/fragile/stackable per item
     products: list[Product] = []
-    for i,tmpl in enumerate(templates):
+    for i, tmpl in enumerate(templates):
         for _ in range(20*(i+1)):
-            products.append(
-                Product(
-                    sku=tmpl.sku,
-                    name=getattr(tmpl, "name", None),
-                    width=tmpl.width,
-                    depth=tmpl.depth,
-                    height=tmpl.height,
-                    weight=getattr(tmpl, "weight", 0),
-                )
-            )
+            products.append(tmpl.model_copy(update={
+                "fragile": random.choice([True, False]),
+                "allow_rotations": random.choice([True, False]),
+                "hazard_classes": _random_hazard_classes(),
+                "stackable": random.choices([True, False], weights=[9, 1])[0],
+            }))
 
     return products
 
