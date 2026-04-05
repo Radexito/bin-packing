@@ -1,5 +1,5 @@
 """Packing logic: place products in containers."""
-from typing import List
+from typing import List, Optional
 import logging
 
 from models.product import Product
@@ -8,10 +8,221 @@ from models.placed_item import PlacedItem
 
 logger = logging.getLogger(__name__)
 
+# Minimum distance from container wall for flammable items (best-effort).
+FLAMMABLE_EDGE_MARGIN = 50  # mm
+
+
+# ---------------------------------------------------------------------------
+# Pre-sort
+# ---------------------------------------------------------------------------
+
+def _sort_products(products: List[Product]) -> List[Product]:
+    """Sort products for optimal packing order.
+
+    Order: heavy non-fragile first (go to bottom), fragile last (land on top).
+    Within each bucket, heaviest first so weight naturally layers bottom-up.
+    """
+    def _key(p: Product):
+        return (1 if p.fragile else 0, -p.weight)
+    return sorted(products, key=_key)
+
+
+# ---------------------------------------------------------------------------
+# Rotation helpers
+# ---------------------------------------------------------------------------
+
+def _get_rotations(product: Product) -> List[tuple]:
+    rotations = [(product.width, product.depth, product.height)]
+    if product.allow_rotations:
+        rotations += [
+            (product.width, product.height, product.depth),
+            (product.depth, product.width, product.height),
+            (product.depth, product.height, product.width),
+            (product.height, product.width, product.depth),
+            (product.height, product.depth, product.width),
+        ]
+    return rotations
+
+
+# ---------------------------------------------------------------------------
+# Constraint checks
+# ---------------------------------------------------------------------------
+
+def _boxes_intersect(a_pos, a_size, b_pos, b_size) -> bool:
+    """Axis-aligned bounding-box intersection test."""
+    ax1, ay1, az1 = a_pos
+    aw, ad, ah = a_size
+    ax2, ay2, az2 = ax1 + aw, ay1 + ad, az1 + ah
+
+    bx1, by1, bz1 = b_pos
+    bw, bd, bh = b_size
+    bx2, by2, bz2 = bx1 + bw, by1 + bd, bz1 + bh
+
+    return not (ax2 <= bx1 or ax1 >= bx2 or ay2 <= by1 or ay1 >= by2 or az2 <= bz1 or az1 >= bz2)
+
+
+def _xy_footprints_overlap(ax, ay, aw, ad, bx, by, bw, bd) -> bool:
+    """Return True if two XY footprints overlap."""
+    return not (ax + aw <= bx or ax >= bx + bw or ay + ad <= by or ay >= by + bd)
+
+
+def _violates_stackable(x, y, z, rw, rd, container: Container) -> bool:
+    """Return True if placing an item at (x,y,z) would sit above a non-stackable item."""
+    for existing in container.items:
+        if existing.product.stackable:
+            continue
+        ew = getattr(existing, "rot_x", existing.product.width)
+        ed = getattr(existing, "rot_y", existing.product.depth)
+        eh = getattr(existing, "rot_z", existing.product.height)
+        item_top_z = existing.pos_z + eh
+        # New item is above the non-stackable item and their XY footprints overlap
+        if z >= item_top_z and _xy_footprints_overlap(x, y, rw, rd, existing.pos_x, existing.pos_y, ew, ed):
+            return True
+    return False
+
+
+def _has_collision(x, y, z, rw, rd, rh, container: Container) -> bool:
+    for existing in container.items:
+        ew = getattr(existing, "rot_x", None)
+        ed = getattr(existing, "rot_y", None)
+        eh = getattr(existing, "rot_z", None)
+        if ew is None or ed is None or eh is None:
+            existing_size = (existing.product.width, existing.product.depth, existing.product.height)
+        else:
+            existing_size = (ew, ed, eh)
+        if _boxes_intersect((x, y, z), (rw, rd, rh), (existing.pos_x, existing.pos_y, existing.pos_z), existing_size):
+            return True
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Space scoring
+# ---------------------------------------------------------------------------
+
+def _score_space(x, y, z, rw, rd, rh, product: Product, container: Container) -> float:
+    """Score a candidate placement. Higher score = better fit for this product.
+    Used to pre-sort spaces before first-fit iteration — not collected exhaustively."""
+    score = 0.0
+
+    z_norm = z / container.height if container.height > 0 else 0.0
+
+    if product.fragile:
+        score += z_norm * 50.0
+        item_cx = x + rw / 2.0
+        item_cy = y + rd / 2.0
+        dist_from_center = abs(item_cx - container.width / 2.0) + abs(item_cy - container.depth / 2.0)
+        score -= dist_from_center * 0.05
+    else:
+        score -= z_norm * 20.0
+
+    if product.is_flammable:
+        m = FLAMMABLE_EDGE_MARGIN
+        interior = (
+            x >= m and y >= m and
+            x + rw <= container.width - m and
+            y + rd <= container.depth - m
+        )
+        if interior:
+            score += 1000.0
+
+    return score
+
+
+# ---------------------------------------------------------------------------
+# Core placement
+# ---------------------------------------------------------------------------
+
+def place_product(container: Container, product: Product) -> bool:
+    """Try to place a product into a container.
+
+    Spaces are pre-sorted by a product-specific score so the first valid
+    placement is also the best-scoring one — preserving first-fit performance.
+    """
+    # Sort spaces by descending score (higher = better for this product).
+    # Use default dimensions as a proxy since we don't know rotation yet.
+    sorted_spaces = sorted(
+        enumerate(container.spaces),
+        key=lambda iv: -_score_space(
+            iv[1][0], iv[1][1], iv[1][2],
+            product.width, product.depth, product.height,
+            product, container,
+        ),
+    )
+
+    current_weight = sum(item.product.weight for item in container.items)
+
+    for orig_idx, (x, y, z, w, d, h) in sorted_spaces:
+        for rw, rd, rh in _get_rotations(product):
+            if rw > w or rd > d or rh > h:
+                continue
+            if x < 0 or y < 0 or z < 0:
+                continue
+            if x + rw > container.width or y + rd > container.depth or z + rh > container.height:
+                continue
+            if current_weight + product.weight > container.max_weight:
+                continue
+            if _has_collision(x, y, z, rw, rd, rh, container):
+                continue
+            if _violates_stackable(x, y, z, rw, rd, container):
+                logger.debug("Skipping %s at (%s,%s,%s): above non-stackable item", product.sku, x, y, z)
+                continue
+
+            # --- Place item ---
+            try:
+                rotated_product = Product(
+                    sku=product.sku,
+                    name=getattr(product, "name", None),
+                    width=rw, depth=rd, height=rh,
+                    weight=product.weight,
+                    fragile=product.fragile,
+                    stackable=product.stackable,
+                    hazard_classes=list(product.hazard_classes),
+                )
+            except Exception:
+                rotated_product = product
+
+            container.items.append(PlacedItem(
+                product=rotated_product,
+                pos_x=x, pos_y=y, pos_z=z,
+                rot_x=rw, rot_y=rd, rot_z=rh,
+            ))
+            logger.debug("Placed %s at (%s,%s,%s) size (%s,%s,%s)", product.sku, x, y, z, rw, rd, rh)
+
+            # Guillotine split — remove used space by original index
+            container.spaces.pop(orig_idx)
+
+            nx, ny, nz = x + rw, y, z
+            nw = min(w - rw, max(0, container.width - nx))
+            if nw > 0 and nx < container.width:
+                container.spaces.append((nx, ny, nz, nw, d, h))
+
+            fx, fy, fz = x, y + rd, z
+            fw = min(rw, max(0, container.width - fx))
+            fd = min(d - rd, max(0, container.depth - fy))
+            if fw > 0 and fd > 0 and fx < container.width and fy < container.depth:
+                container.spaces.append((fx, fy, fz, fw, fd, h))
+
+            tx, ty, tz = x, y, z + rh
+            tw = min(rw, max(0, container.width - tx))
+            td = min(rd, max(0, container.depth - ty))
+            th = min(h - rh, max(0, container.height - tz))
+            if tw > 0 and td > 0 and th > 0 and tx < container.width and ty < container.depth and tz < container.height:
+                container.spaces.append((tx, ty, tz, tw, td, th))
+
+            return True
+
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Top-level packer
+# ---------------------------------------------------------------------------
+
 def pack_products(products: List[Product], first_pallet: Container) -> List[Container]:
     """Pack a list of products into containers."""
     pallets = [first_pallet]
-    products_to_place = products.copy()
+    # Pre-sort: heavy non-fragile first → fragile last
+    products_to_place = _sort_products(products)
     pallet_index = 1
 
     while products_to_place:
@@ -38,194 +249,37 @@ def pack_products(products: List[Product], first_pallet: Container) -> List[Cont
 
         products_to_place = remaining
 
-    # Post-process: center placed items on each pallet (horizontally)
     for p in pallets:
         center_items_in_container(p)
 
     return pallets
 
-def _boxes_intersect(a_pos, a_size, b_pos, b_size) -> bool:
-    """Axis-aligned bounding-box intersection test."""
-    ax1, ay1, az1 = a_pos
-    aw, ad, ah = a_size
-    ax2, ay2, az2 = ax1 + aw, ay1 + ad, az1 + ah
 
-    bx1, by1, bz1 = b_pos
-    bw, bd, bh = b_size
-    bx2, by2, bz2 = bx1 + bw, by1 + bd, bz1 + bh
-
-    # overlap in all three axes means intersection
-    return not (ax2 <= bx1 or ax1 >= bx2 or ay2 <= by1 or ay1 >= by2 or az2 <= bz1 or az1 >= bz2)
+# ---------------------------------------------------------------------------
+# Post-processing
+# ---------------------------------------------------------------------------
 
 def center_items_in_container(container: Container) -> None:
-    """Translate all placed items so their X/Y bounding box is centered on the pallet.
-    Z positions are left unchanged. Translation is clamped so items remain inside bounds."""
+    """Translate all placed items so their X/Y bounding box is centered on the pallet."""
     if not container.items:
         return
 
-    # compute bounding box of placed items (use placed rot_* sizes if present)
-    min_x = float("inf")
-    min_y = float("inf")
-    max_x = float("-inf")
-    max_y = float("-inf")
+    min_x = min(item.pos_x for item in container.items)
+    min_y = min(item.pos_y for item in container.items)
+    max_x = max(item.pos_x + getattr(item, "rot_x", item.product.width) for item in container.items)
+    max_y = max(item.pos_y + getattr(item, "rot_y", item.product.depth) for item in container.items)
 
-    for item in container.items:
-        x = getattr(item, "pos_x", 0)
-        y = getattr(item, "pos_y", 0)
-        w = getattr(item, "rot_x", None)
-        d = getattr(item, "rot_y", None)
-        if w is None or d is None:
-            # fall back to product dimensions
-            w = getattr(item.product, "width", 0)
-            d = getattr(item.product, "depth", 0)
+    dx = container.width / 2.0 - (min_x + max_x) / 2.0
+    dy = container.depth / 2.0 - (min_y + max_y) / 2.0
 
-        min_x = min(min_x, x)
-        min_y = min(min_y, y)
-        max_x = max(max_x, x + w)
-        max_y = max(max_y, y + d)
+    # Clamp so items stay within bounds
+    dx = max(dx, -min_x) if dx < 0 else min(dx, container.width - max_x)
+    dy = max(dy, -min_y) if dy < 0 else min(dy, container.depth - max_y)
 
-    if min_x == float("inf") or min_y == float("inf"):
-        return
-
-    current_cx = (min_x + max_x) / 2.0
-    current_cy = (min_y + max_y) / 2.0
-    target_cx = container.width / 2.0
-    target_cy = container.depth / 2.0
-
-    dx = target_cx - current_cx
-    dy = target_cy - current_cy
-
-    # clamp dx so items remain within [0, container.width]
-    if dx < 0:
-        dx = max(dx, -min_x)
-    else:
-        dx = min(dx, container.width - max_x)
-
-    # clamp dy so items remain within [0, container.depth]
-    if dy < 0:
-        dy = max(dy, -min_y)
-    else:
-        dy = min(dy, container.depth - max_y)
-
-    # apply translation
     if dx == 0 and dy == 0:
         return
 
     for item in container.items:
-        item.pos_x = getattr(item, "pos_x", 0) + dx
-        item.pos_y = getattr(item, "pos_y", 0) + dy
-        # pos_z unchanged
+        item.pos_x = int(round(item.pos_x + dx))
+        item.pos_y = int(round(item.pos_y + dy))
 
-def place_product(container: Container, product: Product) -> bool:
-    """Try to place a product into a container using guillotine packing."""
-    for i, (x, y, z, w, d, h) in enumerate(container.spaces):
-        rotations = [(product.width, product.depth, product.height)]
-        if product.allow_rotations:
-            rotations += [
-                (product.width, product.height, product.depth),
-                (product.depth, product.width, product.height),
-                (product.depth, product.height, product.width),
-                (product.height, product.width, product.depth),
-                (product.height, product.depth, product.width),
-            ]
-
-        for rw, rd, rh in rotations:
-            if rw > w or rd > d or rh > h:
-                continue
-
-            # Ensure placement stays within the container's global bounds (also disallow negative positions)
-            if x < 0 or y < 0 or z < 0 or x + rw > container.width or y + rd > container.depth or z + rh > container.height:
-                logger.debug("Skipping %s rotation (%s,%s,%s): out of container bounds at (%s,%s,%s)",
-                             product.sku, rw, rd, rh, x, y, z)
-                continue
-
-            # Weight check
-            total_weight = sum(item.product.weight for item in container.items) + product.weight
-            if total_weight > container.max_weight:
-                continue
-
-            # Collision check vs already placed items — use stored placed sizes if present
-            collision = False
-            for existing in container.items:
-                existing_pos = (existing.pos_x, existing.pos_y, existing.pos_z)
-                ew = getattr(existing, "rot_x", None)
-                ed = getattr(existing, "rot_y", None)
-                eh = getattr(existing, "rot_z", None)
-                # use explicit None checks (avoid treating 0 as missing)
-                if ew is None or ed is None or eh is None:
-                    existing_size = (existing.product.width, existing.product.depth, existing.product.height)
-                else:
-                    existing_size = (ew, ed, eh)
-                if _boxes_intersect((x, y, z), (rw, rd, rh), existing_pos, existing_size):
-                    collision = True
-                    break
-            if collision:
-                logger.debug("Skipping %s at (%s,%s,%s) size (%s,%s,%s): collision", product.sku, x, y, z, rw, rd, rh)
-                continue
-
-            # create a lightweight Product instance reflecting the placed (rotated) dimensions
-            try:
-                rotated_product = Product(
-                    sku=product.sku,
-                    name=getattr(product, "name", None),
-                    width=rw,
-                    depth=rd,
-                    height=rh,
-                    weight=getattr(product, "weight", 0),
-                )
-            except Exception:
-                # fallback: if Product signature differs, keep original product but also attach rotated attrs to the placed item below
-                rotated_product = product
-
-            placed = PlacedItem(
-                product=rotated_product,
-                pos_x=x,
-                pos_y=y,
-                pos_z=z,
-                rot_x=rw,  # store placed dimensions in rot_* fields so future checks use them
-                rot_y=rd,
-                rot_z=rh,
-            )
-
-            container.items.append(placed)
-
-            logger.debug(
-                "Placed %s at (%s,%s,%s) size (%s,%s,%s)",
-                product.sku, x, y, z, rw, rd, rh
-            )
-
-            # Remove used space and split — clamp created spaces to container bounds
-            container.spaces.pop(i)
-
-            # Right slice (along X): remaining width, full original depth & height
-            nx, ny, nz = x + rw, y, z
-            nw = w - rw
-            if nw > 0:
-                # clamp to container bounds
-                nw = min(nw, max(0, container.width - nx))
-                if nw > 0 and nx < container.width:
-                    container.spaces.append((nx, ny, nz, nw, d, h))
-
-            # Front slice (along Y): width limited to placed width, remaining depth
-            fx, fy, fz = x, y + rd, z
-            fw = rw
-            fd = d - rd
-            if fd > 0 and fw > 0:
-                fw = min(fw, max(0, container.width - fx))
-                fd = min(fd, max(0, container.depth - fy))
-                if fw > 0 and fd > 0 and fx < container.width and fy < container.depth:
-                    container.spaces.append((fx, fy, fz, fw, fd, h))
-
-            # Top slice (along Z): width = placed width, depth = placed depth, remaining height
-            tx, ty, tz = x, y, z + rh
-            tw, td, th = rw, rd, h - rh
-            if th > 0 and tw > 0 and td > 0:
-                tw = min(tw, max(0, container.width - tx))
-                td = min(td, max(0, container.depth - ty))
-                th = min(th, max(0, container.height - tz))
-                if tw > 0 and td > 0 and th > 0 and tx < container.width and ty < container.depth and tz < container.height:
-                    container.spaces.append((tx, ty, tz, tw, td, th))
-
-            return True
-
-    return False
