@@ -7,24 +7,32 @@ from models.container import Container
 from packing import pack_products
 from exporter import export_to_json
 from visualizer import visualize
+from enums import HazardClass
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
+
+_ALL_HAZARD_CLASSES = list(HazardClass)
+
+def _random_hazard_classes() -> list[HazardClass]:
+    """Return a random (possibly empty) subset of hazard classes."""
+    k = random.randint(0, 2)
+    return random.sample(_ALL_HAZARD_CLASSES, k)
 
 def generate_products() -> list[Product]:
     """Generate a list of sample products for packing."""
 
     templates = [
-        Product(sku="A4", name="large-box", width=500, depth=500, height=500, weight=10000, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
-        Product(sku="A3", name="medium-large-box", width=350, depth=350, height=350, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
-        Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
-        Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), flammable=random.choice([True, False])),
+        Product(sku="A4", name="large-box", width=500, depth=500, height=500, weight=10000, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes()),
+        Product(sku="A3", name="medium-large-box", width=350, depth=350, height=350, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes()),
+        Product(sku="A2", name="medium-box", width=200, depth=350, height=250, weight=5100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes()),
+        Product(sku="A1", name="small-box", width=100, depth=300, height=200, weight=3100, fragile=random.choice([True, False]), allow_rotations=random.choice([True, False]), hazard_classes=_random_hazard_classes()),
     ]
 
     # create distinct instances for each copy to avoid shared-object side-effects
     products: list[Product] = []
     for i,tmpl in enumerate(templates):
-        for _ in range(10*(i+1)):
+        for _ in range(20*(i+1)):
             products.append(
                 Product(
                     sku=tmpl.sku,
