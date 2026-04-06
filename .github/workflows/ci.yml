@@ -29,9 +29,6 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-groups
 
-      - name: Ensure pytest is available
-        run: uv add --dev pytest
-
       - name: Install system libs required by PyVista (headless)
         run: |
           sudo apt-get update -qq
