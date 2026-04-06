@@ -143,6 +143,7 @@ def _make_item_mesh(ox, oy, oz, w, d, h, product: dict) -> pv.PolyData:
 
 
 
+def visualize(path="packing_result.json"):
     data = load_packing(path)
     plotter = pv.Plotter()
     plotter.show_axes()

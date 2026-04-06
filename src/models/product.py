@@ -6,11 +6,11 @@ from enum import Enum, auto
 from enums import HazardClass, OrientationConstraint
 
 
-class GeometryType(Enum):
-    RECTANGLE = auto()
-    TRIANGLE = auto()
-    POLYGON = auto()
-    CUSTOM = auto()
+class GeometryType(str, Enum):
+    RECTANGLE = "RECTANGLE"
+    TRIANGLE  = "TRIANGLE"
+    POLYGON   = "POLYGON"
+    CUSTOM    = "CUSTOM"
 
 
 class Product(BaseModel):
