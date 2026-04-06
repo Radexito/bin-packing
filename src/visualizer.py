@@ -1,4 +1,5 @@
 import json
+import numpy as np
 import pyvista as pv
 import logging
 
@@ -98,6 +99,65 @@ def _is_out_of_bounds(pw, pd, ph, pos, size):
     return x < 0 or y < 0 or z < 0 or x + w > pw or y + d > pd or z + h > ph
 
 
+def _make_item_mesh(ox, oy, oz, w, d, h, product: dict) -> pv.PolyData:
+    """Return a PyVista mesh for one item.
+
+    For TRIANGLE / POLYGON geometry types with valid geometry_data, renders
+    an extruded prism matching the actual footprint shape.
+    Falls back to a box for RECTANGLE, CUSTOM, or missing geometry_data.
+    """
+    geo_type = product.get("geometry_type", "RECTANGLE")
+    geo_data = product.get("geometry_data")
+
+    if geo_type in ("TRIANGLE", "POLYGON") and geo_data and len(geo_data) >= 3:
+        try:
+            pts_2d = [(float(p[0]), float(p[1])) for p in geo_data]
+            # Compute original bounding box from geometry data
+            orig_w = max(p[0] for p in pts_2d) - min(p[0] for p in pts_2d)
+            orig_d = max(p[1] for p in pts_2d) - min(p[1] for p in pts_2d)
+
+            # Detect 90° XY rotation: placed dims are swapped relative to original bbox
+            if abs(w - orig_d) < 2 and abs(d - orig_w) < 2:
+                # 90° CW rotation: (x, y) → (y, orig_w - x)
+                pts_2d = [(p[1], orig_w - p[0]) for p in pts_2d]
+
+            # Shift footprint to origin
+            min_x = min(p[0] for p in pts_2d)
+            min_y = min(p[1] for p in pts_2d)
+            pts_2d = [(p[0] - min_x, p[1] - min_y) for p in pts_2d]
+
+            # Second triangle in a pair: render the point-reflection complement
+            # to fill the remainder of the w×d bounding box rectangle.
+            if product.get("pair_second", False) and geo_type == "TRIANGLE":
+                pts_2d = [(w - p[0], d - p[1]) for p in pts_2d]
+            n = len(pts_2d)
+
+            bottom = np.array([[ox + p[0], oy + p[1], oz]     for p in pts_2d])
+            top    = np.array([[ox + p[0], oy + p[1], oz + h] for p in pts_2d])
+            points = np.vstack([bottom, top])
+
+            faces = []
+            # Bottom cap (reverse winding)
+            faces += [n] + list(reversed(range(n)))
+            # Top cap
+            faces += [n] + list(range(n, 2 * n))
+            # Side quads
+            for i in range(n):
+                j = (i + 1) % n
+                faces += [4, i, j, j + n, i + n]
+
+            return pv.PolyData(points, np.array(faces))
+        except Exception as e:
+            logging.warning("Could not build polygon mesh for %s: %s", product.get("sku"), e)
+
+    # Default: axis-aligned box
+    return pv.Cube(
+        center=(ox + w / 2, oy + d / 2, oz + h / 2),
+        x_length=w, y_length=d, z_length=h,
+    )
+
+
+
 def visualize(path="packing_result.json"):
     data = load_packing(path)
     plotter = pv.Plotter()
@@ -122,7 +182,7 @@ def visualize(path="packing_result.json"):
         for item in pallet.get("items", []):
             try:
                 pos  = _parse_position(item["position"])
-                size = _parse_orientation(item.get("orientation", item.get("size", {})))
+                size = _parse_orientation(item.get("placed_dimensions", item.get("orientation", item.get("size", {}))))
             except Exception as e:
                 logging.warning("Skipping item: %s", e)
                 continue
@@ -131,16 +191,27 @@ def visualize(path="packing_result.json"):
             if oob:
                 violations.append({"pallet": pallet_index, "item": item.get("product", {}).get("sku"), "pos": pos, "size": size})
 
-            color = _item_color(item.get("product", {}), oob)
-            cube = pv.Cube(
-                center=(
-                    pallet_offset_x + pos["pos_x"] + size["width"]  / 2,
-                    pos["pos_y"] + size["depth"]  / 2,
-                    pos["pos_z"] + size["height"] / 2,
-                ),
-                x_length=size["width"], y_length=size["depth"], z_length=size["height"],
+            prod = item.get("product", {})
+            # Merge pair_second flag into prod dict so _make_item_mesh can use it
+            prod_with_pair = {**prod, "pair_second": item.get("pair_second", False)}
+            color = _item_color(prod, oob)
+            mesh = _make_item_mesh(
+                pallet_offset_x + pos["pos_x"], pos["pos_y"], pos["pos_z"],
+                size["width"], size["depth"], size["height"],
+                prod_with_pair,
             )
-            plotter.add_mesh(cube, color=color, opacity=0.85, show_edges=True)
+
+            # Non-rectangular items: uranium glow so they're unmistakable
+            geo_type = prod.get("geometry_type", "RECTANGLE")
+            if geo_type in ("TRIANGLE", "POLYGON"):
+                # Paired second triangle: different shade so the pair is visually distinct
+                color_tri = (0.0, 1.0, 0.4) if item.get("pair_second") else (0.2, 1.0, 0.0)
+                plotter.add_mesh(mesh, color=color_tri, opacity=1.0,
+                                 show_edges=True, edge_color="white", line_width=2,
+                                 ambient=0.8, diffuse=1.0, specular=0.8)
+                plotter.add_mesh(mesh, style="wireframe", color="white", line_width=3, opacity=1.0)
+            else:
+                plotter.add_mesh(mesh, color=color, opacity=0.85, show_edges=True)
 
     if violations:
         logging.error("Detected %d out-of-bounds items", len(violations))
