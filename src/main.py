@@ -3,6 +3,7 @@ import logging
 import random
 
 from models import Product
+from models.product import GeometryType
 from models.container import Container
 from packing import pack_products
 from exporter import export_to_json
@@ -29,10 +30,17 @@ def generate_products() -> list[Product]:
         Product(sku="A3", name="medium-large-box",  width=350, depth=350, height=350, weight=5100),
         Product(sku="A2", name="medium-box",         width=200, depth=350, height=250, weight=5100),
         Product(sku="A1", name="small-box",          width=100, depth=300, height=200, weight=3100),
+        # Non-rectangular: right-angled triangle with legs 300×200 mm
+        Product(
+            sku="TRI", name="triangle-box",
+            width=300, depth=200, height=150, weight=2000,
+            geometry_type=GeometryType.TRIANGLE,
+            geometry_data=[(0, 0), (300, 0), (0, 200)],
+        ),
     ]
 
     products: list[Product] = []
-    for i, tmpl in enumerate(templates):
+    for i, tmpl in enumerate(templates[:4]):
         for _ in range(20*(i+1)):
             products.append(tmpl.model_copy(update={
                 "fragile": random.choice([True, False]),
@@ -40,6 +48,14 @@ def generate_products() -> list[Product]:
                 "stackable": random.choices([True, False], weights=[9, 1])[0],
                 "orientation_constraints": random.choice(_CONSTRAINTS),
             }))
+
+    # Add 10 triangle items for geometry testing
+    tri_tmpl = templates[4]
+    for _ in range(10):
+        products.append(tri_tmpl.model_copy(update={
+            "fragile": random.choice([True, False]),
+            "hazard_classes": _random_hazard_classes(),
+        }))
 
     return products
 
