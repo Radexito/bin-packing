@@ -3,12 +3,11 @@ import logging
 import random
 
 from models import Product
-from models.product import GeometryType
 from models.container import Container
 from packing import pack_products
 from exporter import export_to_json
 from visualizer import visualize
-from enums import HazardClass, OrientationConstraint
+from enums import GeometryType, HazardClass, OrientationConstraint
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)

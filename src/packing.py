@@ -6,6 +6,7 @@ import uuid
 from models.product import Product
 from models.container import Container
 from models.placed_item import PlacedItem
+from enums import GeometryType
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +27,6 @@ def _bounding_box(product: Product) -> tuple[int, int, int]:
                           Falls back to product dimensions if geometry_data is absent or malformed.
     CUSTOM     → product dimensions as fallback (warns once).
     """
-    from models.product import GeometryType
     gt = product.geometry_type
 
     if gt == GeometryType.RECTANGLE:
@@ -257,7 +257,6 @@ def place_product(container: Container, product: Product) -> bool:
 
 def _can_pair_triangles(a: Product, b: Product) -> bool:
     """Two TRIANGLE products can share a rectangle slot if their bounding boxes match."""
-    from models.product import GeometryType
     return (
         a.geometry_type == GeometryType.TRIANGLE
         and b.geometry_type == GeometryType.TRIANGLE
@@ -365,7 +364,6 @@ def pack_products(products: List[Product], first_pallet: Container) -> List[Cont
             placed = False
 
             # Try to pair with a compatible triangle partner
-            from models.product import GeometryType
             if product.geometry_type == GeometryType.TRIANGLE:
                 for j in range(i + 1, len(products_to_place)):
                     if j in skip_indices:
