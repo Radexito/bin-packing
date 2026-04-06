@@ -1,16 +1,8 @@
 from datetime import datetime, timezone
 from typing import Optional, List, Tuple
 from pydantic import BaseModel, Field
-from enum import Enum, auto
 
-from enums import HazardClass, OrientationConstraint
-
-
-class GeometryType(str, Enum):
-    RECTANGLE = "RECTANGLE"
-    TRIANGLE  = "TRIANGLE"
-    POLYGON   = "POLYGON"
-    CUSTOM    = "CUSTOM"
+from enums import GeometryType, HazardClass, OrientationConstraint
 
 
 class Product(BaseModel):
