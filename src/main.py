@@ -7,21 +7,23 @@ from models.container import Container
 from packing import pack_products
 from exporter import export_to_json
 from visualizer import visualize
-from enums import HazardClass
+from enums import HazardClass, OrientationConstraint
 
 logging.basicConfig(level=logging.DEBUG, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
 _ALL_HAZARD_CLASSES = list(HazardClass)
+_CONSTRAINTS = [None, None, None, OrientationConstraint.UPRIGHT_ONLY, OrientationConstraint.NO_LAY_FLAT]
+
 
 def _random_hazard_classes() -> list[HazardClass]:
     """Return a random (possibly empty) subset of hazard classes."""
     k = random.randint(0, 2)
     return random.sample(_ALL_HAZARD_CLASSES, k)
 
+
 def generate_products() -> list[Product]:
     """Generate a list of sample products for packing."""
-
     templates = [
         Product(sku="A4", name="large-box",        width=500, depth=500, height=500, weight=10000),
         Product(sku="A3", name="medium-large-box",  width=350, depth=350, height=350, weight=5100),
@@ -29,35 +31,31 @@ def generate_products() -> list[Product]:
         Product(sku="A1", name="small-box",          width=100, depth=300, height=200, weight=3100),
     ]
 
-    # create distinct instances — randomise hazard/fragile/stackable per item
     products: list[Product] = []
     for i, tmpl in enumerate(templates):
         for _ in range(20*(i+1)):
             products.append(tmpl.model_copy(update={
                 "fragile": random.choice([True, False]),
-                "allow_rotations": random.choice([True, False]),
                 "hazard_classes": _random_hazard_classes(),
                 "stackable": random.choices([True, False], weights=[9, 1])[0],
+                "orientation_constraints": random.choice(_CONSTRAINTS),
             }))
 
     return products
+
 
 def create_initial_pallet() -> Container:
     """Create the first pallet."""
     return Container(name="Pallet-1", width=1200, depth=800, height=1500, max_weight=1_500_000)
 
-def main():
-    # Generate products
-    products = generate_products()
 
-    # Create initial pallet
+def main():
+    products = generate_products()
     first_pallet = create_initial_pallet()
     logger.info("Created first pallet: %s", first_pallet)
 
-    # Pack products into pallets
     pallets = pack_products(products, first_pallet)
 
-    # Log results of the packing process
     for pallet in pallets:
         logger.info("\n%s contains:", pallet.name)
         for item in pallet.items:
@@ -68,11 +66,9 @@ def main():
                 item.rotated_width, item.rotated_depth, item.rotated_height
             )
 
-    # Export packed pallet information to JSON
     export_to_json(pallets, "packing_result.json")
-
-    # Visualize the packing result
     visualize()
+
 
 if __name__ == "__main__":
     main()

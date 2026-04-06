@@ -32,16 +32,22 @@ def _sort_products(products: List[Product]) -> List[Product]:
 # ---------------------------------------------------------------------------
 
 def _get_rotations(product: Product) -> List[tuple]:
-    rotations = [(product.width, product.depth, product.height)]
-    if product.allow_rotations:
-        rotations += [
-            (product.width, product.height, product.depth),
-            (product.depth, product.width, product.height),
-            (product.depth, product.height, product.width),
-            (product.height, product.width, product.depth),
-            (product.height, product.depth, product.width),
-        ]
-    return rotations
+    """Return allowed (rw, rd, rh) orientations.
+
+    - UPRIGHT_ONLY  → 1 candidate: exactly as defined
+    - NO_LAY_FLAT   → 2 candidates: Z-axis only (swap width/depth)
+    - None          → all 6 orientations
+    """
+    from enums import OrientationConstraint
+    w, d, h = product.width, product.depth, product.height
+
+    if product.orientation_constraints == OrientationConstraint.UPRIGHT_ONLY:
+        return [(w, d, h)]
+
+    if product.orientation_constraints == OrientationConstraint.NO_LAY_FLAT:
+        return [(w, d, h), (d, w, h)]
+
+    return [(w, d, h), (w, h, d), (d, w, h), (d, h, w), (h, w, d), (h, d, w)]
 
 
 # ---------------------------------------------------------------------------
@@ -282,4 +288,6 @@ def center_items_in_container(container: Container) -> None:
     for item in container.items:
         item.pos_x = int(round(item.pos_x + dx))
         item.pos_y = int(round(item.pos_y + dy))
+
+
 
