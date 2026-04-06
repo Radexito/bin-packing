@@ -60,9 +60,8 @@ def main():
         logger.info("\n%s contains:", pallet.name)
         for item in pallet.items:
             logger.info(
-                "%s at (%d,%d,%d) size (%d,%d,%d) rot (%d,%d,%d)",
+                "%s at (%d,%d,%d) placed (%d,%d,%d)",
                 item.product.sku, item.pos_x, item.pos_y, item.pos_z,
-                item.rot_x, item.rot_y, item.rot_z,
                 item.rotated_width, item.rotated_depth, item.rotated_height
             )
 

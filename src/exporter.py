@@ -33,12 +33,7 @@ def export_to_json(pallets: List[Container], path: str) -> None:
                     "pos_y": item.pos_y,
                     "pos_z": item.pos_z,
                 },
-                "rotation": {
-                    "rot_x": item.rot_x,
-                    "rot_y": item.rot_y,
-                    "rot_z": item.rot_z,
-                },
-                "orientation": {
+                "placed_dimensions": {
                     "width": item.rotated_width,
                     "depth": item.rotated_depth,
                     "height": item.rotated_height,

@@ -34,6 +34,10 @@ class Product(BaseModel):
     """UN Dangerous Goods hazard classes. Replaces the former `flammable` boolean."""
     geometry_type: GeometryType = GeometryType.RECTANGLE
     geometry_data: Optional[List[Tuple[int, int]]] = None
+    """2D polygon vertices describing the footprint in mm, relative to item corner (0,0).
+    Format: [(x0,y0), (x1,y1), ...] — closed polygon, first ≠ last point.
+    Used for TRIANGLE and POLYGON geometry types; ignored for RECTANGLE and CUSTOM.
+    The packer derives the axis-aligned bounding box from these vertices."""
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @property
