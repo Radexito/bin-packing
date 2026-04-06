@@ -1,6 +1,7 @@
 """Packing logic: place products in containers."""
 from typing import List, Optional
 import logging
+import uuid
 
 from models.product import Product
 from models.container import Container
@@ -251,11 +252,102 @@ def place_product(container: Container, product: Product) -> bool:
 
 
 # ---------------------------------------------------------------------------
-# Top-level packer
+# Triangle pairing
 # ---------------------------------------------------------------------------
 
+def _can_pair_triangles(a: Product, b: Product) -> bool:
+    """Two TRIANGLE products can share a rectangle slot if their bounding boxes match."""
+    from models.product import GeometryType
+    return (
+        a.geometry_type == GeometryType.TRIANGLE
+        and b.geometry_type == GeometryType.TRIANGLE
+        and _bounding_box(a) == _bounding_box(b)
+    )
+
+
+def _place_paired_triangles(container: Container, a: Product, b: Product) -> bool:
+    """Place two compatible triangles into one shared bounding-box slot.
+
+    Both items are recorded at the same (x, y, z) with the same placed dimensions.
+    The second item is flagged pair_second=True so the visualiser renders the
+    complement (point-reflected) shape, and together they fill a full rectangle.
+    Space is consumed exactly once, halving the wasted area vs. two solo placements.
+    """
+    pair_uid = uuid.uuid4().hex[:8]
+
+    current_weight = sum(item.product.weight for item in container.items)
+    if current_weight + a.weight + b.weight > container.max_weight:
+        return False
+
+    sorted_spaces = sorted(
+        enumerate(container.spaces),
+        key=lambda iv: -_score_space(
+            iv[1][0], iv[1][1], iv[1][2], *_bounding_box(a), a, container,
+        ),
+    )
+
+    for orig_idx, (x, y, z, w, d, h) in sorted_spaces:
+        for rw, rd, rh in _get_rotations(a):
+            if rw > w or rd > d or rh > h:
+                continue
+            if x < 0 or y < 0 or z < 0:
+                continue
+            if x + rw > container.width or y + rd > container.depth or z + rh > container.height:
+                continue
+            if _has_collision(x, y, z, rw, rd, rh, container):
+                continue
+            if _violates_stackable(x, y, z, rw, rd, container):
+                continue
+
+            pair_uid_str = uuid.uuid4().hex[:8]
+            container.items.append(PlacedItem(
+                product=a,
+                pos_x=x, pos_y=y, pos_z=z,
+                placed_width=rw, placed_depth=rd, placed_height=rh,
+                pair_id=pair_uid_str, pair_second=False,
+            ))
+            container.items.append(PlacedItem(
+                product=b,
+                pos_x=x, pos_y=y, pos_z=z,
+                placed_width=rw, placed_depth=rd, placed_height=rh,
+                pair_id=pair_uid_str, pair_second=True,
+            ))
+            logger.debug(
+                "Paired %s+%s at (%s,%s,%s) size (%s,%s,%s) [pair=%s]",
+                a.sku, b.sku, x, y, z, rw, rd, rh, pair_uid_str,
+            )
+
+            # Guillotine split — identical to single-item placement
+            container.spaces.pop(orig_idx)
+
+            nx, ny, nz = x + rw, y, z
+            nw = min(w - rw, max(0, container.width - nx))
+            if nw > 0 and nx < container.width:
+                container.spaces.append((nx, ny, nz, nw, d, h))
+
+            fx, fy, fz = x, y + rd, z
+            fw = min(rw, max(0, container.width - fx))
+            fd = min(d - rd, max(0, container.depth - fy))
+            if fw > 0 and fd > 0 and fx < container.width and fy < container.depth:
+                container.spaces.append((fx, fy, fz, fw, fd, h))
+
+            tx, ty, tz = x, y, z + rh
+            tw = min(rw, max(0, container.width - tx))
+            td = min(rd, max(0, container.depth - ty))
+            th = min(h - rh, max(0, container.height - tz))
+            if tw > 0 and td > 0 and th > 0 and tx < container.width and ty < container.depth and tz < container.height:
+                container.spaces.append((tx, ty, tz, tw, td, th))
+
+            return True
+
+    return False
+
 def pack_products(products: List[Product], first_pallet: Container) -> List[Container]:
-    """Pack a list of products into containers."""
+    """Pack a list of products into containers.
+
+    Before attempting solo placement, compatible TRIANGLE pairs are identified
+    and packed together into one shared bounding-box slot, halving wasted space.
+    """
     pallets = [first_pallet]
     products_to_place = _sort_products(products)
     pallet_index = 1
@@ -264,11 +356,33 @@ def pack_products(products: List[Product], first_pallet: Container) -> List[Cont
         pallet = pallets[-1]
         remaining: List[Product] = []
         any_placed = False
+        skip_indices: set[int] = set()
 
-        for product in products_to_place:
-            if place_product(pallet, product):
+        for i, product in enumerate(products_to_place):
+            if i in skip_indices:
+                continue
+
+            placed = False
+
+            # Try to pair with a compatible triangle partner
+            from models.product import GeometryType
+            if product.geometry_type == GeometryType.TRIANGLE:
+                for j in range(i + 1, len(products_to_place)):
+                    if j in skip_indices:
+                        continue
+                    partner = products_to_place[j]
+                    if _can_pair_triangles(product, partner):
+                        if _place_paired_triangles(pallet, product, partner):
+                            skip_indices.add(j)
+                            any_placed = True
+                            placed = True
+                            break
+
+            if not placed and place_product(pallet, product):
                 any_placed = True
-            else:
+                placed = True
+
+            if not placed:
                 remaining.append(product)
 
         if not any_placed:

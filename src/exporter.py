@@ -27,7 +27,7 @@ def export_to_json(pallets: List[Container], path: str) -> None:
         # Iterate through each placed item in the pallet
         for item in pallet.items:
             item_data = {
-                "product": item.product.model_dump(mode="json"),  # Serialize the product
+                "product": item.product.model_dump(mode="json"),
                 "position": {
                     "pos_x": item.pos_x,
                     "pos_y": item.pos_y,
@@ -39,6 +39,9 @@ def export_to_json(pallets: List[Container], path: str) -> None:
                     "height": item.rotated_height,
                 },
             }
+            if item.pair_id is not None:
+                item_data["pair_id"] = item.pair_id
+                item_data["pair_second"] = item.pair_second
             pallet_data["items"].append(item_data)
 
         # Append the pallet data to the main data

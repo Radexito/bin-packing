@@ -124,10 +124,16 @@ def _make_item_mesh(ox, oy, oz, w, d, h, product: dict) -> pv.PolyData:
             # Shift footprint to origin
             min_x = min(p[0] for p in pts_2d)
             min_y = min(p[1] for p in pts_2d)
+            pts_2d = [(p[0] - min_x, p[1] - min_y) for p in pts_2d]
+
+            # Second triangle in a pair: render the point-reflection complement
+            # to fill the remainder of the w×d bounding box rectangle.
+            if product.get("pair_second", False) and geo_type == "TRIANGLE":
+                pts_2d = [(w - p[0], d - p[1]) for p in pts_2d]
             n = len(pts_2d)
 
-            bottom = np.array([[ox + p[0] - min_x, oy + p[1] - min_y, oz]        for p in pts_2d])
-            top    = np.array([[ox + p[0] - min_x, oy + p[1] - min_y, oz + h]    for p in pts_2d])
+            bottom = np.array([[ox + p[0], oy + p[1], oz]     for p in pts_2d])
+            top    = np.array([[ox + p[0], oy + p[1], oz + h] for p in pts_2d])
             points = np.vstack([bottom, top])
 
             faces = []
@@ -186,20 +192,23 @@ def visualize(path="packing_result.json"):
                 violations.append({"pallet": pallet_index, "item": item.get("product", {}).get("sku"), "pos": pos, "size": size})
 
             prod = item.get("product", {})
+            # Merge pair_second flag into prod dict so _make_item_mesh can use it
+            prod_with_pair = {**prod, "pair_second": item.get("pair_second", False)}
             color = _item_color(prod, oob)
             mesh = _make_item_mesh(
                 pallet_offset_x + pos["pos_x"], pos["pos_y"], pos["pos_z"],
                 size["width"], size["depth"], size["height"],
-                prod,
+                prod_with_pair,
             )
 
             # Non-rectangular items: uranium glow so they're unmistakable
             geo_type = prod.get("geometry_type", "RECTANGLE")
             if geo_type in ("TRIANGLE", "POLYGON"):
-                plotter.add_mesh(mesh, color=(0.2, 1.0, 0.0), opacity=1.0,
+                # Paired second triangle: different shade so the pair is visually distinct
+                color_tri = (0.0, 1.0, 0.4) if item.get("pair_second") else (0.2, 1.0, 0.0)
+                plotter.add_mesh(mesh, color=color_tri, opacity=1.0,
                                  show_edges=True, edge_color="white", line_width=2,
                                  ambient=0.8, diffuse=1.0, specular=0.8)
-                # Bright outline halo
                 plotter.add_mesh(mesh, style="wireframe", color="white", line_width=3, opacity=1.0)
             else:
                 plotter.add_mesh(mesh, color=color, opacity=0.85, show_edges=True)

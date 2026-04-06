@@ -1,3 +1,4 @@
+from typing import Optional
 from pydantic import BaseModel
 from models.product import Product
 
@@ -15,6 +16,11 @@ class PlacedItem(BaseModel):
     placed_width: int = 0
     placed_depth: int = 0
     placed_height: int = 0
+
+    # Triangle pairing: two triangles sharing the same bounding-box slot form a rectangle.
+    # pair_id links the two items; pair_second marks the complement (flipped) triangle.
+    pair_id: Optional[str] = None
+    pair_second: bool = False
 
     @property
     def weight(self) -> int:
