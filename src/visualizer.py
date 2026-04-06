@@ -112,7 +112,16 @@ def _make_item_mesh(ox, oy, oz, w, d, h, product: dict) -> pv.PolyData:
     if geo_type in ("TRIANGLE", "POLYGON") and geo_data and len(geo_data) >= 3:
         try:
             pts_2d = [(float(p[0]), float(p[1])) for p in geo_data]
-            # Compute bounding box so the footprint is offset to (ox, oy)
+            # Compute original bounding box from geometry data
+            orig_w = max(p[0] for p in pts_2d) - min(p[0] for p in pts_2d)
+            orig_d = max(p[1] for p in pts_2d) - min(p[1] for p in pts_2d)
+
+            # Detect 90° XY rotation: placed dims are swapped relative to original bbox
+            if abs(w - orig_d) < 2 and abs(d - orig_w) < 2:
+                # 90° CW rotation: (x, y) → (y, orig_w - x)
+                pts_2d = [(p[1], orig_w - p[0]) for p in pts_2d]
+
+            # Shift footprint to origin
             min_x = min(p[0] for p in pts_2d)
             min_y = min(p[1] for p in pts_2d)
             n = len(pts_2d)
@@ -176,13 +185,24 @@ def visualize(path="packing_result.json"):
             if oob:
                 violations.append({"pallet": pallet_index, "item": item.get("product", {}).get("sku"), "pos": pos, "size": size})
 
-            color = _item_color(item.get("product", {}), oob)
+            prod = item.get("product", {})
+            color = _item_color(prod, oob)
             mesh = _make_item_mesh(
                 pallet_offset_x + pos["pos_x"], pos["pos_y"], pos["pos_z"],
                 size["width"], size["depth"], size["height"],
-                item.get("product", {}),
+                prod,
             )
-            plotter.add_mesh(mesh, color=color, opacity=0.85, show_edges=True)
+
+            # Non-rectangular items: uranium glow so they're unmistakable
+            geo_type = prod.get("geometry_type", "RECTANGLE")
+            if geo_type in ("TRIANGLE", "POLYGON"):
+                plotter.add_mesh(mesh, color=(0.2, 1.0, 0.0), opacity=1.0,
+                                 show_edges=True, edge_color="white", line_width=2,
+                                 ambient=0.8, diffuse=1.0, specular=0.8)
+                # Bright outline halo
+                plotter.add_mesh(mesh, style="wireframe", color="white", line_width=3, opacity=1.0)
+            else:
+                plotter.add_mesh(mesh, color=color, opacity=0.85, show_edges=True)
 
     if violations:
         logging.error("Detected %d out-of-bounds items", len(violations))

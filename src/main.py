@@ -36,6 +36,7 @@ def generate_products() -> list[Product]:
             width=300, depth=200, height=150, weight=2000,
             geometry_type=GeometryType.TRIANGLE,
             geometry_data=[(0, 0), (300, 0), (0, 200)],
+            orientation_constraints=OrientationConstraint.NO_LAY_FLAT,
         ),
     ]
 
